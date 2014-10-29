@@ -27,11 +27,13 @@ ClassLoader::addDirectories(array(
 |
 | Here we will configure the error logger setup for the application which
 | is built on top of the wonderful Monolog library. By default we will
-| build a basic log file setup which creates a single file for logs.
+| build a rotating log file setup which creates a new file each day.
 |
 */
 
-Log::useFiles(storage_path().'/logs/laravel.log');
+$logFile = 'log-'.php_sapi_name().'.txt';
+
+Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +51,21 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
+
+	if ( ! Config::get('app.debug'))
+	{
+		switch ($code)
+		{
+			case 403:
+				return Response::make(View::make('error/403'), 403);
+
+			case 500:
+				return Response::make(View::make('error/500'), 500);
+
+			default:
+				return Response::make(View::make('error/404'), 404);
+		}
+	}
 });
 
 /*
@@ -58,13 +75,13 @@ App::error(function(Exception $exception, $code)
 |
 | The "down" Artisan command gives you the ability to put an application
 | into maintenance mode. Here, you will define what is displayed back
-| to the user if maintenance mode is in effect for the application.
+| to the user if maintenace mode is in effect for this application.
 |
 */
 
 App::down(function()
 {
-	return Response::make("Be right back!", 503);
+	return Response::make(View::make('error/503'), 503);
 });
 
 /*

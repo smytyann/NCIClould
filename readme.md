@@ -1,25 +1,129 @@
-## Laravel PHP Framework
+# Please don't send any PR's as i'm not accepting them at this moment!
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+## Laravel 4 - Starter Kit
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+This is a Laravel 4 Starter Kit and it will help you getting started with Laravel 4.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+It includes examples on how to use the framework itself and how to use some
+packages, like the awesome [Sentry 2](https://github.com/cartalyst/sentry) package.
 
-## Official Documentation
+-----
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+## Included goodies
 
-### Contributing To Laravel
+* Twitter Bootstrap 2.3.2
+* jQuery 1.10.2
+* Custom CLI Installer
+* Custom Error Pages:
+	* 403 for forbidden page access
+	* 404 for not found pages
+	* 500 for internal server errors
+	* 503 for the maintenance page
+* Back-end
+	* User and Group management
+	* Manage blog posts and comments
+* Front-end
+	* User login, registration, activation and forgot password
+	* User account area
+	* Blog functionality with commentaries
+	* Contact us page
+* Packages included:
+	* [Cartalyst Sentry 2 - Authentication and Authorization package](https://github.com/cartalyst/sentry)
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+-----
 
-### License
+## Requirements
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+- PHP 5.3.7 or later
+- MCrypt PHP Extension
+
+-----
+
+## How to Install
+
+### 1) Downloading
+#### 1.1) Clone the Repository
+
+	git clone http://github.com/brunogaspar/laravel4-starter-kit your-folder
+
+#### 1.2) Download the Repository
+
+	https://github.com/brunogaspar/laravel4-starter-kit/archive/master.zip
+
+-----
+
+### 2) Install the Dependencies via Composer
+##### 2.1) If you don't have composer installed globally
+
+	cd your-folder
+	curl -s http://getcomposer.org/installer | php
+	php composer.phar install
+
+##### 2.2) For globally composer installations
+
+	cd your-folder
+	composer install
+
+-----
+
+### 3) Setup Database
+
+Now that you have the Starter Kit cloned and all the dependencies installed, you need to create a database and update the file `app/config/database.php`.
+
+-----
+
+### 4) Setup Mail Settings
+
+Now, you need to setup your mail settings by just opening and updating the following file `app/config/mail.php`.
+
+This will be used to send emails to your users, when they register and they request a password reset.
+
+-----
+
+### 5) Use custom CLI Installer Command
+
+Now, you need to create yourself a user and finish the installation.
+
+Use the following command to create your default user, user groups and run all the necessary migrations automatically.
+
+	php artisan app:install
+
+-----
+
+### 6) Accessing the Administration
+
+To access the administration page, you just need to access `http://your-host/public/admin` on your browser and it will automatically redirect you to the login page, in the login page, just fill in and submit the form.
+
+After you being authenticated, you will be redirected back to the administration page.
+
+-----
+
+### LICENSE
+
+> Version 1, December 2009
+
+> Copyright (C) 2009 Philip Sturgeon <email@philsturgeon.co.uk>
+
+ Everyone is permitted to copy and distribute verbatim or modified
+ copies of this license document, and changing it is allowed as long
+ as the name is changed.
+
+> DON'T BE A DICK PUBLIC LICENSE
+> TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+ 1. Do whatever you like with the original work, just don't be a dick.
+
+     Being a dick includes - but is not limited to - the following instances:
+
+	 1a. Outright copyright infringement - Don't just copy this and change the name.
+	 1b. Selling the unmodified original with no work done what-so-ever, that's REALLY being a dick.
+	 1c. Modifying the original work to contain hidden harmful content. That would make you a PROPER dick.
+
+ 2. If you become rich through modifications, related works/services, or supporting the original work,
+ share the love. Only a dick would make loads off this work and not buy the original works
+ creator(s) a pint.
+
+ 3. Code is provided with no warranty. Using somebody else's code and bitching when it goes wrong makes
+ you a DONKEY dick. Fix the problem yourself. A non-dick would submit the fix back.
